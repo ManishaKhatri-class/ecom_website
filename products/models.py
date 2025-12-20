@@ -19,7 +19,7 @@ class SubCategory(models.Model):
 		return f"{self.category.name}->{self.name}"
 
 class Product(models.Model):
-	sub_category=models.ForeignKey(SubCategory,on_delete=models.CASCADE)
+	subcategory=models.ForeignKey(SubCategory,on_delete=models.CASCADE)
 	name=models.CharField(max_length=100)
 	sku=models.CharField(max_length=50,unique=True)
 	price=models.DecimalField(max_digits=10,decimal_places=2)

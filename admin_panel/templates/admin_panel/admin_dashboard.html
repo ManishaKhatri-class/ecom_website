@@ -9,14 +9,14 @@
 		<div class="col-md-2 bg-light sidebar p-3 vh-100">
 			<ul class="nav flex-column">
 				<li class="nav-item">
-					<a class="nav-link active" href="">Dashboard</a></li>
+					<a class="nav-link active" href="{% url 'admin-dashboard' %}">Dashboard</a></li>
 					<li class="nav-item">
-					<a class="nav-link" href="{% url 'category_list' %}">Category Master</a>
+					<a class="nav-link" href="{% url 'admin_panel:category_list' %}">Category Master</a>
 </li>
 					<li class="nav-item">
-					<a class="nav-link" href="">Sub-category Master</a></li>
+					<a class="nav-link" href="{% url 'admin_panel:subcategory_list' %}">Sub-Category Master</a></li>
 					<li class="nav-item">
-					<a class="nav-link" href="">Product</a></li>
+					<a class="nav-link" href="{% url 'admin_panel:product_list' %}">Product</a></li>
 				</ul>
 		</div>
 <div class="col-md-10 p-4">

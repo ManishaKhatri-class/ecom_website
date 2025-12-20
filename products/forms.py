@@ -1,5 +1,6 @@
 from django import forms
 from products.models import Category, SubCategory, Product
+from django.utils.text import slugify
 
 
 class CategoryForm(forms.ModelForm):
@@ -15,7 +16,8 @@ class CategoryForm(forms.ModelForm):
 
     def clean_slug(self):
         slug = self.cleaned_data['slug']
-        if Category.objects.filter(slug=slug).exists():
+        slug=slugify(slug)
+        if Category.objects.exclude(pk=self.instance.pk).filter(slug=slug).exists():
             raise forms.ValidationError("Slug already exists")
         return slug
 
@@ -34,7 +36,9 @@ class SubCategoryForm(forms.ModelForm):
     
     def clean_slug(self):
         slug = self.cleaned_data['slug']
-        if SubCategory.objects.filter(slug=slug).exists():
+        slug=slugify(slug)
+
+        if SubCategory.objects.exclude(pk=self.instance.pk).filter(slug=slug).exists():
             raise forms.ValidationError("Slug already exists")
         return slug
 
@@ -56,6 +60,6 @@ class ProductForm(forms.ModelForm):
    
     def clean_sku(self):
         sku = self.cleaned_data['sku']
-        if Product.objects.filter(sku=sku).exists():
+        if Product.objects.exclude(pk=self.instance.pk).filter(sku=sku).exists():
             raise forms.ValidationError("SKU already exists")
         return sku

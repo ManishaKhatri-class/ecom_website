@@ -1,0 +1,23 @@
+{% extends "admin_panel/Base.html" %}
+{% load static %}
+
+{% block content %}
+
+<form method="POST">
+<h2 class="mt-4">Do you want to delete "{{object.name}}"?</h2>
+	{% csrf_token %}
+	{{form.as_p}}
+	<button  class="btn btn-primary" >
+		Yes,Delete
+		
+	</button>
+	<a href="{% url 'admin_panel:category_list' %}" class="btn btn-secondary">
+		Cancel
+		
+	</a>
+	
+</form>
+
+
+
+{% endblock %}

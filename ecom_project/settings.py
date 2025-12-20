@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'admin_panel',
     'user',
     'products',
+    
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
