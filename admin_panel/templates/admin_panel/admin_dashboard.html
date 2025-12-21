@@ -1,0 +1,86 @@
+{% extends "admin_panel/Base.html" %}
+
+{% load static %}
+
+{% block content %}
+<div class="container-fluid">
+	<div class="row">
+		<!--sidebar-->
+		<div class="col-md-2 bg-light sidebar p-3 vh-100">
+			<ul class="nav flex-column">
+				<li class="nav-item">
+					<a class="nav-link active" href="{% url 'admin-dashboard' %}">Dashboard</a></li>
+					<li class="nav-item">
+					<a class="nav-link" href="{% url 'admin_panel:category_list' %}">Category Master</a>
+</li>
+					<li class="nav-item">
+					<a class="nav-link" href="{% url 'admin_panel:subcategory_list' %}">Sub-Category Master</a></li>
+					<li class="nav-item">
+					<a class="nav-link" href="{% url 'admin_panel:product_list' %}">Product</a></li>
+				</ul>
+		</div>
+<div class="col-md-10 p-4">
+	<h3>Dashboard</h3>
+	<div class="row- mt-4">
+		<div class="col-md3">
+			<div class="card text-bg-primary">
+				<div class="card-body">
+					<h5>Categories</h5>
+					<h2>{{category_count}}</h2>
+				</div>
+		</div>
+	</div>
+
+	</div>
+<div class="row- mt-4">
+		<div class="col-md3">
+			<div class="card text-bg-primary">
+				<div class="card-body">
+					<h5>Sub- Categories</h5>
+					<h2>{{sub_category_count}}</h2>
+				</div>
+		</div>
+	</div>
+
+	</div>
+	<div class="row- mt-4">
+		<div class="col-md3">
+			<div class="card text-bg-primary">
+				<div class="card-body">
+					<h5>Products</h5>
+					<h2>{{product_count}}</h2>
+				</div>
+			</div>
+		</div>
+
+	</div>
+<div class="card mt-4">
+	<div class="card-header">
+		Recent Products
+	</div>
+	<div class="card-body">
+		<table class="table table-bordered">
+			<tr>
+				<th>Name</th>
+				<th>SKU</th>
+				<th>Price</th>
+				<th>Stock</th>
+			</tr>
+			{% for product in products %}
+			<tr>
+				<td>{{product.name}}</td>
+				<td>{{product.sku}}</td>
+				<td>{{product.price}}</td>
+				<td>{{product.stock}}</td>
+			</tr>
+			{% empty %}
+			<tr>
+				<td colspan="4" class="text-center">No Products Found</td>
+			</tr>
+			{% endfor %}
+		</table>
+</div>
+</div>
+
+
+{% endblock %}

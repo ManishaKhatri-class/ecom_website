@@ -1,0 +1,58 @@
+{% extends "admin_panel/Base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="mt-3">Product List</h3>
+            <a href="{% url 'admin_panel:product_add' %}" class="btn btn-success mb-3">Add Product</a>
+<a href="{% url 'admin-dashboard' %}" class="btn btn-success mb-3">Back</a>
+            {% if products %}
+            <table class="table table-bordered table-striped">
+                <thead class="table-dark">
+                    <tr>
+                         <th>ID</th>
+                        <th>Name</th>
+                        <th>SKU</th>      
+                        <th>Price</th>
+                         <th>Stock</th>
+                         <th>Description</th>
+                            <th>Image</th>
+                         <th>Actions</th>
+                        
+
+
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product in products %}
+                    <tr>
+                        <td>{{ product.id }}</td>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.sku }}</td>
+                         <td>{{ product.price }}</td>
+                           <td>{{ product.stock }}</td>
+                               <td>{{ product.description }}</td>
+                                {% if product.image %}
+                           <td><img src="{{ product.image.url }}" width="100px" height="100px"/></td>
+                            {% else %}
+                              <td> No image </td>
+                            {% endif %}
+                       
+                        <td>
+                            <a href="{% url 'admin_panel:product_edit' product.sku %}" class="btn btn-primary btn-sm">Edit</a>
+                            <a href="{% url 'admin_panel:product_delete' product.sku %}" class="btn btn-danger btn-sm"
+                               onclick="return confirm('Are you sure you want to delete this category?');">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% else %}
+            <p class="text-center">No Products found.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

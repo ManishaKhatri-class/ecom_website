@@ -1,0 +1,12 @@
+{% extends 'admin_panel/Base.html' %}
+{% load static %}
+{% block content %}
+<form method="POST">
+	{% csrf_token %}
+	<Button class="btn btn-success" >Sign Up </Button>
+	Already have an Accout? 
+	<a href="" class="alert alert-danger">Login in here!</a>
+
+</form>
+
+{% endblock %}
