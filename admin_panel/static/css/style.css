@@ -3,17 +3,24 @@ body {
     background-color: #fff;
     
 }
+<<<<<<< HEAD
 .right-nav{
     align-items: right;!important
     text-align: right;!important
     font-size: 1rem;!important
 
 }
+=======
+>>>>>>> 93a7b86ed4178619cc4bc13f8f0f6141663a87af
 .active{
     text-decoration: underline red;
     color: red;
 }
+<<<<<<< HEAD
 li:hover{
+=======
+ul:hover{
+>>>>>>> 93a7b86ed4178619cc4bc13f8f0f6141663a87af
     color: red;
 }
 .main {

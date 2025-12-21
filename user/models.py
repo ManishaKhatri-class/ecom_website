@@ -1,4 +1,5 @@
 from django.db import models
+<<<<<<< HEAD
 from django.core.validators import RegexValidator,EmailValidator
 from django.core.exceptions import ValidationError
 
@@ -32,3 +33,7 @@ class Register(models.Model):
 			return self.email
 
 
+=======
+
+# Create your models here.
+>>>>>>> 93a7b86ed4178619cc4bc13f8f0f6141663a87af

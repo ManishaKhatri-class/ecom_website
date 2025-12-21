@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 from django.shortcuts import render,redirect
 from .forms import RegisterationForm
 from django.views import View
@@ -58,3 +59,8 @@ def user_dashboard(request):
 def user_logout(request):
 	logout(request)
 	return render(request,'user_logout.html')
+=======
+from django.shortcuts import render
+
+# Create your views here.
+>>>>>>> 93a7b86ed4178619cc4bc13f8f0f6141663a87af
