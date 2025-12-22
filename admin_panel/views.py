@@ -1,5 +1,7 @@
 from django.shortcuts import render,redirect
-from django.contrib.auth import authenticate,login
+
+from django.contrib.auth import authenticate,login,logout
+
 from django.contrib.auth.decorators import login_required,user_passes_test
 from products.models import Category,SubCategory,Product
 
@@ -13,9 +15,10 @@ def admin_login(request):
 		if user is not None and user.is_staff:
 			login(request,user)
 			return redirect('admin-dashboard')
-		return render(request ,"admin_panel/login.html",{
-			'error':'Incorrect admin credentials','username':username,'password': password})
-	return render(request,'admin_panel/login.html')
+
+		return render(request ,"admin_panel/Login.html",{
+			'error':'Incorrect admin credentials'})
+	return render(request,'admin_panel/Login.html')
 
 
 def is_admin(user):
@@ -31,6 +34,11 @@ def admin_dashboard(request):
 	'sub_category_count':SubCategory.objects.count(),
 	'product_count':Product.objects.count(),
 	'products':Product.objects.order_by('-id')[:5],
-}
+	}
+
 
 	return render(request,'admin_panel/admin_dashboard.html',context);
+
+def admin_logout(request):
+	logout(request)
+	return render(request,'admin_panel/logout.html')

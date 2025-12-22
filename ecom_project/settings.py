@@ -40,7 +40,8 @@ INSTALLED_APPS = [
     'admin_panel',
     'user',
     'products',
-    
+   'crispy_forms',
+     'crispy_bootstrap5',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',

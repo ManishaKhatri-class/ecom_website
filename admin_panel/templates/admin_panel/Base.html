@@ -19,10 +19,29 @@
               <button class="navbar-toggler" type="button" data-toggle="collapse">
               	<span class="navbar-toggler-icon"></span>
               </button>
+
+
+              <div class="collapse navbar-collapse" id="navbarToggle">
+              		<a class="navbar-brand mr-4 right-nav" href="{% url 'user-register' %}">
+           		 User Register
+        		</a>
+                 	{% if user.is_authenticated and user.is_staff %}
+			<a class="navbar-brand mr-4 right-nav" href="{% url 'admin-logout' %}">
+          		  Logout
+        		</a>
+			{% else %}
+        		<a class="navbar-brand mr-4 right-nav" href="{% url 'admin-login' %}">
+           		Admin  Login
+        		</a>
+        	
+  			  {% endif %}
+              	<div class="navbar-nav">
+       
+
               <div class="collapse navbar-collapse" id="navbarToggle">
               	
               	<div class="navbar-nav">
-       s
+   
               </div>
           </div>
       </div>
