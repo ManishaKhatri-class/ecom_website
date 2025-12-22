@@ -3,13 +3,19 @@ body {
     background-color: #fff;
     
 }
+
+.right-nav{
+    align-items: right;!important
+    text-align: right;!important
+    font-size: 1rem;!important
+
+}
+
 .active{
     text-decoration: underline red;
     color: red;
 }
-ul:hover{
-    color: red;
-}
+
 .main {
 	box-align: center;
 	display: grid;

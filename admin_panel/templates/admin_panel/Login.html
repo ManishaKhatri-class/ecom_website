@@ -6,8 +6,9 @@
 {%csrf_token%}
 <h2>Admin Login</h2>
 
-{%if error%}
-<p class="error hide" >{{error}} </p>
+{%if error %}
+<p class="error" >{{error}} </p>
+
 {% endif %}
 <input type="text" name="username" placeholder="Username"   required/>
 <input type="Password" placeholder="Password" name="password" required/>
@@ -16,4 +17,5 @@
 	Submit
 </button>
 </form>
-{% endblock%}
+
+{% endblock %}

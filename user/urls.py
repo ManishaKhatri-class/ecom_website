@@ -1,4 +1,5 @@
 from django.urls import path
+<<<<<<< HEAD
 from django.contrib import admin
 from django.contrib.auth import views as auth_views
 from user import views as user_views
@@ -21,4 +22,15 @@ path(
     auth_views.PasswordResetCompleteView.as_view(template_name="user/password_reset_complete.html"),
     name='password_reset_complete'
 ),
+=======
+from .import views
+
+
+urlpatterns=[
+path('user-register/',views.user_register,name='user-register'),
+path('user-login/',views.user_login,name='user-login'),
+path('user-dashboard/',views.user_login,name='user-dashboard'),
+path('user-logout/',views.user_logout,name='user-logout')
+
+>>>>>>> cb1b3181f1be4f3ce5ea799625050162a878655a
 ]
