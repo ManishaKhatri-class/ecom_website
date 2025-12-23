@@ -1,18 +1,18 @@
 <!-- Author: MANISHA RANI -->
-{% extends "blog/base.html" %}
+{% extends "admin_panel/Base.html" %}
 {% load crispy_forms_tags %}
 <!-- created user profile to show user details and profile pic -->
 {% block content %}
 <div class="profile-container">
 	<div class="media">
-    {% if user.profile.image %}
+    <!-- {% if user.profile.image %}
     
     <img  class ="rounded-circle account-img profile-pic" src="{{ user.profile.image.url }}" alt="{{ user.username }}" ><br>
    
 {% else %}
     <img  class ="rounded-circle account-img profile-pic" src="/media/profile_pics/default.jpg" alt="{{ user.username }}"><br>
    
-{% endif %}
+{% endif %} -->
 </div>
 <div class="media-body info">
 	<h2 class="account-heading">{{user.username}}</h2>

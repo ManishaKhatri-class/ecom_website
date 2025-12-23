@@ -1,7 +1,7 @@
 
 <!-- Author: MANISHA RANI -->
 
-{% extends "blog/base.html" %}
+{% extends "admin_panel/Base.html" %}
 {% load crispy_forms_tags %}
 {% block content %}
 	<div class="main">
@@ -19,7 +19,7 @@
     </form>
     <div class="border-top pt-3">
     	<small class="text-muted">
-    		Already Have An Account?<a href="#" class="ml-2" href="{% url 'login' %}">Sign In</a>
+    		Already Have An Account?<a href="#" class="ml-2" href="{% url 'user-login' %}">Sign In</a>
     	</small>
 
     </div>
