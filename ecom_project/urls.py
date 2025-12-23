@@ -9,7 +9,7 @@ from django.conf import settings
 
 
 urlpatterns = [
-
+ path('home/',admin_views.home,name="home"),
     path('admin-panel/',admin_views.admin_login,name="admin-login"),
       path('admin-panel/logout',admin_views.admin_logout,name="admin-logout"),
     path('admin-dashboard/',admin_views.admin_dashboard,name="admin-dashboard"),

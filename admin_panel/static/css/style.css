@@ -15,7 +15,10 @@ body {
     text-decoration: underline red;
     color: red;
 }
-
+.container-grid{
+    display: flex;
+    gap:2;
+}
 .main {
 	box-align: center;
 	display: grid;

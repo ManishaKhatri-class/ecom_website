@@ -37,3 +37,5 @@ def admin_dashboard(request):
 def admin_logout(request):
 	logout(request)
 	return render(request,'admin_panel/admin_dashboard.html')
+def home(request):
+	return render(request,'admin_panel/Base.html')

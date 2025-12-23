@@ -61,14 +61,12 @@ def user_login(request):
 
 @login_required
 def user_dashboard(request):
-
+    products = Product.objects.all()
     return render(request,'user/user_dashboard.html')
 
-@login_required
 def user_logout(request):
     logout(request)
-    return redirect('user-login')
-
+    return render(request,'admin_panel/Base.html')
 @login_required
 def profile(request):
     profile = CustomUser.objects.get(user=request.user)
