@@ -17,6 +17,13 @@
     		<button class="btn btn-outline-info" type="submit">Sign Up</button>
     	</div>
     </form>
+    {% if messages %}
+      <ul class="messages">
+        <li {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+           {{ message }}
+        </li>
+     </ul>
+    {% endif %}
     <div class="border-top pt-3">
     	<small class="text-muted">
     		Already Have An Account?<a href="#" class="ml-2" href="{% url 'user-login' %}">Sign In</a>

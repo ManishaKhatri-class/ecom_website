@@ -1,13 +1,14 @@
 /* Author: MANISHA RANI */
 body {
     background-color: #fff;
+       display: flex;
+    justify-content: center;  /* Horizontal center */
+    align-items: center;
     
 }
 
 .right-nav{
-    align-items: right;!important
-    text-align: right;!important
-    font-size: 1rem;!important
+    align-self: right;
 
 }
 
@@ -16,16 +17,102 @@ body {
     color: red;
 }
 .container-grid{
+    padding: 5px;
+    margin: 5px;
+  
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);;
+    gap: 1; 
+
+  
+
+}
+.container-grid-flex{
+    padding: 5px;
     display: flex;
-    gap:2;
+    gap:0;
+
+  
+
+}
+.product-card{
+    width: 350px;
+    height: 400px;
+    padding: 5px;
+    box-shadow: 3px black;
+    background-color: white;
+        display: flex;
+    flex-direction: column;   
+    justify-content: center;  
+    align-items: center;      
+    text-align: center;  
+
+
+}
+.product-card:hover{
+    transform: translate(10px);
+}
+.heading{
+    text-align: center;
+
+}
+.product-name{
+    font-size: 1.2rem;
+    color: black;
+    padding: 5px;
+    max-width: 200px;  
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    
+
+}
+.product-img{
+    height: 250px;
+    width: 230px;
+    border: 0;
+
+}
+#price{
+    font-size: 1rem;
+    color: blue;
+
+}
+.buy{
+    background-color: orange;
+    color: white;
+    box-shadow: 2px black;
+    height: 50px;
+    width: 200px;
+    border-radius: 5rem;
+
+}
+.buy:hover{
+    opacity: 50%;
+}
+.container-login{
+
+    text-align: center;
+    display: grid;
+    height: 20%;
+    width: 20%;
+
+
+}
+.login-btn:hover{
+    opacity: 50%;
 }
 .main {
+    align-self: center;
 	box-align: center;
 	display: grid;
     width: 90%;
+    height: 80%;
     margin: 80px;
     padding: 20px;
     background-color: #f09031;
+
+
 }
 .error{
     color: red;
@@ -37,55 +124,15 @@ body {
     background-color: black;
 }
 
-.delete-section{
-    color: #000;
-    width:100% !important;
-    padding: 10px;
-  background-color: whitesmoke !important;
-}
-.content-section{
-    display: inline-grid;
-    color: #000;
-    width:250px;
-    padding: 10px;
-  background-color: whitesmoke;
-}
-.article{
-    background-color: whitesmoke;
-        padding: 20px;
-         width: 100%;
-         margin: 2px;
-}
-.article-title{
-  color: purple;
-  font-size: 2rem;
-}
 
-.article-content{
-  color: #333;
-  line-height: 1.6;
-  font-size: 1rem;
-}
-.article-img{
-     width: 30px !important;
-    height: 30px !important;
-}
-/*style profile image of user*/
+
+
 .profile-container {
     display: flex;               
     justify-content: center;      
     align-items: center;          
     flex-direction: column;       
     margin-top: 20px;
-}
-
-.profile-pic {
-    width: 150px !important;
-    height: 150px !important;
-    border-radius: 50%;          
-    object-fit: cover;            
-    border: 2px solid #333;
-    margin: 20px auto;           
 }
 
 

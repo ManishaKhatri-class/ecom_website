@@ -8,8 +8,8 @@
 <a href="{% url 'profile' %}">Edit Profile</a>
 <h3>Your Recent Orders</h3>
 <ul>
-  {% for order in recent_orders %}
-    <li>Order #{{ order.id }} - {{ order.status }}</li>
+  {% for product in products %}
+    <li>Order #{{ product.id }} - {{ product.name }}</li>
   {% empty %}
     <li>No recent orders</li>
   {% endfor %}

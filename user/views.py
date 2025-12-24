@@ -7,6 +7,8 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .models import CustomUser
+from products.models import Product
+
 def user_register(request):
     if request.method == 'POST':
     	form = UserRegistrationForm(request.POST)
@@ -30,43 +32,47 @@ def user_register(request):
 
 
 def user_login(request):
-
     if request.method == 'POST':
-    	form = LoginForm(request.POST)
-    	username_or_email = request.POST.get('username_or_email')
-    	password = request.POST.get('password')
-    	try:
-    		user_obj = User.objects.get(username=username_or_email)
-    	except User.DoesNotExist:
-    		try:
-    			user_obj = User.objects.get(email=username_or_email)
-    		except User.DoesNotExist:
-    			user_obj = None
-
-    	if user_obj:
-    		user = authenticate(request, username=user_obj.username, password=password)
-    		if user:
-    			login(request, user)
-    			return redirect('user-dashboard')
-    		else:
-    			messages.error(request, "Incorrect password")
-    	else:
-    		messages.error(request, "User not found")
-    		return render(request, 'user/user_login.html',{'form': form})
+        form = LoginForm(request.POST)
+        username_or_email = request.POST.get('username_or_email')
+        password = request.POST.get('password')
+        remember_me=request.POST.get('remember_me')
+        try:
+            user_obj = User.objects.get(username=username_or_email)
+        except User.DoesNotExist:
+            try:
+                user_obj = User.objects.get(email=username_or_email)
+            except User.DoesNotExist:
+                user_obj = None
+        if user_obj:
+                user = authenticate(request, username=user_obj.username, password=password)
+                if user:
+                    login(request, user)
+                    if remember_me=="on":
+                        request.session.set_expiry(60*60*24*2)
+                    else:
+                        request.session.set_expiry(0)
+                    return redirect('user-dashboard')
+                else:
+                    messages.error(request, "Incorrect password")
+                    return redirect('user-login')
+        else:
+                messages.error(request, "User not found")
+                return render(request, 'user/user_login.html',{'form': form})
     else:
-    	form = LoginForm()
-    	return render(request, 'user/user_login.html',{'form': form})
+        form = LoginForm()
+        return render(request, 'user/user_login.html',{'form': form})
 
 
 
 @login_required
 def user_dashboard(request):
     products = Product.objects.all()
-    return render(request,'user/user_dashboard.html')
+    return render(request,'user/user_dashboard.html',{'products':products})
 
 def user_logout(request):
     logout(request)
-    return render(request,'admin_panel/Base.html')
+    return redirect('home')
 @login_required
 def profile(request):
     profile = CustomUser.objects.get(user=request.user)
