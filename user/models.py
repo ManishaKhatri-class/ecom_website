@@ -11,6 +11,7 @@ mobile_validator = RegexValidator(
 class CustomUser(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     mobile_number = models.CharField(max_length=15, unique=True, validators=[mobile_validator])
+    profile_pic=models.ImageField(upload_to='profiles/',default="profiles/default.jpg")
     def __str__(self):
         return self.user.username
 

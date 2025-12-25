@@ -1,30 +1,48 @@
 <!-- Author: MANISHA RANI -->
 {% extends "admin_panel/Base.html" %}
+{% load static %}
 {% load crispy_forms_tags %}
 <!-- created user profile to show user details and profile pic -->
 {% block content %}
 <div class="profile-container">
 
-<div class="info">
-	<h2 class="account-heading">{{ profile.user.username }}</h2>
- <p>Mobile: {{ profile.mobile_number }}</p>
-</div>
 
-
-<form method="POST" >
-    	{% csrf_token %}
-    	<fieldset class="form-group">
-    		<legend class="border-bottom mb-4">
+	<div class="media">
+<img src="{{ profile.profile_pic.url }}" class="rounded-circle profile-pic" alt="Profile Picture"/>
+	</div>
+	<legend class="border-bottom mb-4">
     			Profile Info
     		</legend>
+
+
+
+<form method="POST" enctype="multipart/form-data" >
+    	{% csrf_token %}
+
+    	<fieldset class="form-group">
     		{{ u_form|crispy }}
     		{{ p_form|crispy }}
     	</fieldset>
     	<div class="form-group">
     		<button class="btn btn-outline-info" type="submit">Update</button>
     	</div>
+
     </form>
+    {% if messages %}
+    <ul class="messages" id ="messages">
+    	    {% for message in messages %}
+
+
+    			<li   {% if message.tags %} class="{{ message.tags }}" {% endif %}>{{message}} </li>
+    {% endfor %}
+
+</ul>
+    {% endif %}
+
 	
 </div>
+  <script src="{% static 'js/script.js' %}">
+    
+    </script>
 {% endblock %}
 

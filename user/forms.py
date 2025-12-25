@@ -48,3 +48,12 @@ class UserRegistrationForm(forms.Form):
 class LoginForm(forms.Form):
     username_or_email = forms.CharField(label="Username or Email")
     password = forms.CharField(widget=forms.PasswordInput)
+class ProfileUpdateForm(forms.ModelForm):
+    class Meta:
+        model=CustomUser
+        fields=['mobile_number','profile_pic']
+class UserUpdateForm(forms.ModelForm):
+    class Meta:
+        model=User
+        fields=['username','email']
+

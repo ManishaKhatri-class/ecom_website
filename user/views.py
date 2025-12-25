@@ -2,7 +2,7 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login,logout
-from .forms import UserRegistrationForm,LoginForm
+from .forms import UserRegistrationForm,LoginForm,ProfileUpdateForm,UserUpdateForm
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
@@ -75,18 +75,30 @@ def user_logout(request):
     return redirect('home')
 @login_required
 def profile(request):
-    profile = CustomUser.objects.get(user=request.user)
-
+    
     if request.method == 'POST':
-        mobile_number = request.POST.get('mobile_number')
-        if mobile_number and mobile_number != profile.mobile_number:
-            # Check for uniqueness
-            if CustomUser.objects.filter(mobile_number=mobile_number).exists():
-                messages.error(request, "Mobile number already exists")
-            else:
-                profile.mobile_number = mobile_number
-                profile.save()
-                messages.success(request, "Profile updated successfully")
-                return redirect('user-dashboard')
-
-    return render(request, 'user/profile.html', {'profile': profile})
+        u_form=UserUpdateForm(request.POST,instance=request.user)
+        p_form=ProfileUpdateForm(
+            request.POST,
+            request.FILES,
+            instance=request.user.customuser
+            )
+        if u_form.is_valid() and p_form.is_valid():
+            u_form.save()
+            p_form.save()
+            messages.success(request,"Profile Updated Successfully!")
+            return redirect('profile')
+        else:
+            u_form=UserUpdateForm(instance=request.user)
+            p_form=ProfileUpdateForm(instance=request.user.customuser)
+            messages.error(request,"Profile Not Updated")
+            return render(request,'user/profile.html',context)
+    else:
+        u_form=UserUpdateForm(instance=request.user)
+        p_form=ProfileUpdateForm(instance=request.user.customuser)
+        context = {
+        'u_form': u_form,
+        'p_form': p_form,
+        'profile': request.user.customuser
+        }
+        return render(request,'user/profile.html',context)

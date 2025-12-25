@@ -6,11 +6,16 @@ body {
     align-items: center;
     
 }
-
-.right-nav{
-    align-self: right;
+.profile-pic
+{
+    align-content: center;
+    height: 200px;
+    width: 200px;
+    border: 5px solid black;
+    border-radius: 50%;
 
 }
+
 
 .active{
     text-decoration: underline red;
