@@ -44,4 +44,4 @@ def admin_logout(request):
 	return redirect('home')
 def home(request):
  products = Product.objects.all()
- return render(request,'admin_panel/Base.html',{'products':products})
+ return render(request,'admin_panel/base.html',{'products':products})
