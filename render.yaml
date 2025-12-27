@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: ecom_website
+    env: python
+    buildCommand: "./build.sh"
+    startCommand: "gunicorn ecom_project.wsgi:application"
+    plan: free
