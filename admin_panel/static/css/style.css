@@ -6,6 +6,10 @@ body {
     align-items: center;
     
 }
+ .contaier{
+    max-width:80%;
+   margin: 0 auto;
+ } 
 .profile-pic
 {
     align-content: center;
@@ -100,7 +104,7 @@ body {
     align-self: center;
 	box-align: center;
 	display: grid;
-    width: 90%;
+    width: 1000%;
     height: 80%;
     margin: 80px;
     padding: 20px;
