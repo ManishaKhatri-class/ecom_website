@@ -24,33 +24,20 @@ body {
 .container-grid{
     padding: 5px;
     margin: 5px;
-  
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);;
-    gap: 1; 
 
   
 
 }
-.container-grid-flex{
-    padding: 5px;
-    display: flex;
-    gap:0;
 
-  
-
-}
 .product-card{
-    width: 350px;
+    width: 300px;
     height: 400px;
     padding: 5px;
     box-shadow: 3px black;
     background-color: white;
-        display: flex;
-    flex-direction: column;   
-    justify-content: center;  
-    align-items: center;      
-    text-align: center;  
+    text-align: center;
+    align-items: center;
+        
 
 
 }
@@ -76,6 +63,8 @@ body {
     height: 250px;
     width: 230px;
     border: 0;
+    object-fit:center;
+    display: block;
 
 }
 #price{
