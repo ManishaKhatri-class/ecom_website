@@ -17,9 +17,9 @@ def admin_login(request):
 		if user is not None and user.is_staff:
 			login(request,user)
 			return redirect('admin-dashboard')
-		return render(request ,"admin_panel/login.html",{
+		return render(request ,"admin_panel/Login.html",{
 			'error':'Incorrect admin credentials','username':username,'password': password})
-	return render(request,'admin_panel/login.html')
+	return render(request,'admin_panel/Login.html')
 
 def is_admin(user):
 	return user.is_staff
