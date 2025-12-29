@@ -1,15 +1,34 @@
 /* Author: MANISHA RANI */
-body {
+html,body {
     background-color: #fff;
-       display: flex;
     justify-content: center;  /* Horizontal center */
     align-items: center;
-    
+        overflow-x: auto;
 }
- .contaier{
+
+.container-fluid
+{
+    max-width: 500px;
+}
+.table-responsive {
+    overflow-x: auto;
+}
+
+
+
+th, td {
+    white-space: normal;
+
+    max-width: 100px;
+}
+ .container{
     max-width:80%;
    margin: 0 auto;
  } 
+ .container-dashboard{
+     max-width:50%;
+   margin: 0 auto;
+ }
 .profile-pic
 {
     align-content: center;
@@ -97,6 +116,10 @@ body {
 
 
 }
+.table-responsive {
+    position: relative;
+    z-index: 1;
+}
 .login-btn:hover{
     opacity: 50%;
 }
@@ -104,20 +127,18 @@ body {
     align-self: center;
 	box-align: center;
 	display: grid;
-    width: 1000%;
+    width: 100%;
     height: 80%;
-    margin: 80px;
+    margin: 20px ;
     padding: 20px;
     background-color: #f09031;
-
+overflow-x: auto;
 
 }
 .error{
     color: red;
 }
-.hide{
-    display: none;
-}
+
 .my-black{
     background-color: black;
 }

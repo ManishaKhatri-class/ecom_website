@@ -4,6 +4,7 @@
 
 {% block content %}
 
+
 	<div class="row align-items-stretch">
 		<!--sidebar-->
 		<div class="col-md-2 bg-light sidebar p-3 vh-100">
@@ -23,7 +24,7 @@
 	<h3>Dashboard</h3>
 	<div class="row- mt-4">
 		<div class="col-md3">
-			<div class="card text-bg-primary">
+			<div class="card text-bg-primary" onclick="window.location.href='{% url 'admin_panel:category_list' %}'" style="cursor: pointer;">
 				<div class="card-body">
 					<h5>Categories</h5>
 					<h2>{{category_count}}</h2>
@@ -34,9 +35,9 @@
 	</div>
 <div class="row- mt-4">
 		<div class="col-md3">
-			<div class="card text-bg-primary">
+			<div class="card text-bg-primary" onclick="window.location.href='{% url 'admin_panel:subcategory_list' %}'" style="cursor: pointer;">
 				<div class="card-body">
-					<h5>Sub- Categories</h5>
+					<h5>Sub-Categories</h5>
 					<h2>{{sub_category_count}}</h2>
 				</div>
 		</div>
@@ -45,7 +46,7 @@
 	</div>
 	<div class="row- mt-4">
 		<div class="col-md3">
-			<div class="card text-bg-primary">
+			<div class="card text-bg-primary" onclick="window.location.href='{% url 'admin_panel:product_list' %}'" style="cursor: pointer;">
 				<div class="card-body">
 					<h5>Products</h5>
 					<h2>{{product_count}}</h2>
@@ -80,7 +81,5 @@
 			{% endfor %}
 		</table>
 </div>
-
-
 
 {% endblock %}
